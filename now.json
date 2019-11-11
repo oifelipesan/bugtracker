@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "*.js",
+      "use": "@now/node-server"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.js"
+    }
+  ],
+  "build": {
+    "env": {
+      "SENDGRID_API_KEY": "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"
+    }
+  }
+}

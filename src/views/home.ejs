@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link rel="stylesheet" href="public/css/styles.css" />
+
+    <script>
+      document.onreadystatechange = () => {
+        if (document.readyState === 'interactive') {
+          document.getElementById('userAgent').value =
+            window.navigator.userAgent
+
+          document.getElementById('userDate').value = new Date()
+        }
+      }
+    </script>
+
+    <title><%- title -%></title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <img src="public/images/bugtracker.png" alt="" />
+        <h1>Ferramenta de relato de Bugs</h1>
+        <p>Preencha todos os dados a seguir:</p>
+      </header>
+
+      <form method="POST">
+        <span id="message"></span>
+
+        <input type="text" name="name" id="name" placeholder="Nome" />
+        <input type="email" name="email" id="email" placeholder="Email" />
+        <select name="issueType" id="issueType" />
+          <option selected disabled value="">Classificação</option>
+          <option value="CRITICAL">Crítico</option>
+          <option value="BUG">Erro</option>
+          <option value="ENHANCEMENT">Melhoria</option>
+        </select>
+        <input
+          type="text"
+          name="howToReproduce"
+          id="howToReproduce"
+          placeholder="Como reproduzir o erro?"
+        />
+        <textarea
+          name="expectedOutput"
+          id="expectedOutput"
+          placeholder="Qual a saída esperada?"
+        ></textarea>
+        <textarea
+          name="receivedOutput"
+          id="receivedOutput"
+          placeholder="Qual a saída recebida?"
+        ></textarea>
+
+        <input type="hidden" name="userAgent" id="userAgent" />
+        <input type="hidden" name="userDate" id="userDate" />
+
+        <button type="submit">Enviar solicitação!</button>
+      </form>
+    </div>
+
+    <script>
+      const name = document.getElementById('name').value
+      const email = document.getElementById('email').value
+      const issueType = document.getElementById('issueType').value
+      const howToReproduce = document.getElementById('howToReproduce').value
+      const expectedOutput = document.getElementById('expectedOutput').value
+      const receivedOutput = document.getElementById('receivedOutput').value
+      const message = document.getElementById('message')
+    </script>
+  </body>
+</html>
