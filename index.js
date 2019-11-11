@@ -9,9 +9,7 @@ require('dotenv').config()
 
 const credentials = require('./src/config/bugtracker.json')
 const { docId, worksheetIndex } = require('./src/config')
-// const sendGridKey = process.env.SENDGRID_API_KEY
-const sendGridKey =
-  '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'
+const sendGridKey = process.env.SENDGRID_API_KEY
 
 const port = process.env.PORT || 3000
 const app = express()
